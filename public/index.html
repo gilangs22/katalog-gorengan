@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakul Gorengan | Katalog Goreng & Kukus Fresh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-mode">
+    <div class="cursor-glow"></div>
+    <div class="bg-decor-container">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <nav class="nav">
+        <div class="container nav-wrapper">
+            <a href="/" class="nav-logo">
+                <i class="fas fa-basket-shopping"></i>
+                <span>Bakul Gorengan</span>
+            </a>
+            <div class="nav-right">
+                <div class="nav-menu" id="navMenu">
+                    <a href="#katalog" class="nav-link">Katalog</a>
+                    <a href="#why-us" class="nav-link">Keunggulan</a>
+                    <a href="#kontak" class="nav-link">Kontak</a>
+                    <button id="darkModeToggle" class="nav-icon-btn" aria-label="Ganti tema"><i class="fas fa-sun"></i></button>
+                    <a href="/admin" class="nav-btn-admin">Panel Admin</a>
+                </div>
+                <div class="nav-actions">
+                    <button id="menuToggle" class="nav-icon-btn mobile-only" aria-label="Buka menu"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <div class="hero-badge"><i class="fas fa-fire"></i> Fresh Dibuat Harian</div>
+                <h1>Katalog Gorengan <br><span class="text-gradient">Goreng & Kukus.</span></h1>
+                <p>Pilih otok-otok, donat, dan bakpao favoritmu dari katalog yang bersih, cepat dibaca, dan langsung bisa dipesan via WhatsApp.</p>
+                <div class="hero-actions">
+                    <a href="#katalog" class="btn btn-primary">Lihat Menu Ready</a>
+                    <a href="https://wa.me/62895406015956" class="btn btn-ghost" target="_blank" rel="noopener">Pesan Sekarang</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item"><b>10</b> <span>Menu Pilihan</span></div>
+                    <div class="stat-item"><b>2</b> <span>Kategori</span></div>
+                </div>
+            </div>
+            <div class="hero-visual" aria-label="Ilustrasi katalog gorengan">
+                <div class="floating-card card-1"><i class="fas fa-oil-can"></i> Goreng Hangat</div>
+                <div class="floating-card card-2"><i class="fas fa-cloud"></i> Kukus Lembut</div>
+                <div class="food-showcase">
+                    <div class="plate">
+                        <span class="food-ball ball-1"></span>
+                        <span class="food-ball ball-2"></span>
+                        <span class="food-ball ball-3"></span>
+                        <span class="donut-shape"></span>
+                        <span class="bao-shape"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <div class="section-center reveal">
+                <span class="sub-title">Keunggulan Kami</span>
+                <h2>Rasa Rumahan, Tampilan Katalog Premium</h2>
+                <p class="section-desc">Semua menu dibuat untuk pesanan harian, cocok untuk camilan, acara kecil, atau stok jualan.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal" style="transition-delay: 0.1s">
+                    <div class="f-icon-box icon-blue"><i class="fas fa-clock"></i></div>
+                    <h3>Fresh Harian</h3>
+                    <p>Produk disiapkan hangat dan rapi supaya kualitas rasa tetap konsisten.</p>
+                </div>
+                <div class="feature-card reveal" style="transition-delay: 0.2s">
+                    <div class="f-icon-box icon-green"><i class="fas fa-layer-group"></i></div>
+                    <h3>Pilihan Jelas</h3>
+                    <p>Kategori goreng dan kukus memudahkan pembeli memilih sesuai selera.</p>
+                </div>
+                <div class="feature-card reveal" style="transition-delay: 0.3s">
+                    <div class="f-icon-box icon-orange"><i class="fab fa-whatsapp"></i></div>
+                    <h3>Order Cepat</h3>
+                    <p>Setiap item langsung terhubung ke WhatsApp admin untuk tanya stok dan pesan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container content-area" id="katalog">
+        <div class="section-top">
+            <div class="section-title">
+                <span class="sub-title">Menu Ready</span>
+                <h2>Katalog Gorengan</h2>
+                <p>Gunakan pencarian atau filter kategori untuk menemukan menu yang kamu mau.</p>
+            </div>
+            <div class="controls">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Cari otok-otok, donat, bakpao...">
+                </div>
+                <div class="filter-group" id="categoryFilter">
+                    <button class="filter-btn active" data-category="all">Semua</button>
+                    <button class="filter-btn" data-category="goreng">Goreng</button>
+                    <button class="filter-btn" data-category="kukus">Kukus</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="productGrid" class="product-grid"></div>
+    </main>
+
+    <section class="cta-banner container reveal" id="kontak">
+        <div class="cta-content">
+            <div class="cta-text">
+                <span class="sub-title">Kontak Pemesanan</span>
+                <h2>Mau pesan untuk hari ini?</h2>
+                <p>Hubungi admin untuk cek stok, jumlah pesanan, dan jadwal ambil atau kirim.</p>
+            </div>
+            <a href="https://wa.me/62895406015956" class="btn-cta-wa" target="_blank" rel="noopener">
+                <i class="fab fa-whatsapp"></i> 0895-4060-15956
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="nav-logo">
+                    <i class="fas fa-basket-shopping"></i>
+                    <span>Bakul Gorengan</span>
+                </div>
+                <p>Katalog jual beli gorengan dan menu kukus dengan pemesanan langsung via WhatsApp.</p>
+                <div class="social-links">
+                    <a href="https://wa.me/62895406015956" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Link Cepat</h4>
+                <ul>
+                    <li><a href="#katalog">Katalog Produk</a></li>
+                    <li><a href="#why-us">Keunggulan</a></li>
+                    <li><a href="/admin">Panel Admin</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Kontak Kami</h4>
+                <p><i class="fas fa-phone"></i> 0895-4060-15956</p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp aktif untuk pemesanan</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 <b>Bakul Gorengan</b>. Goreng hangat, kukus lembut.</p>
+        </div>
+    </footer>
+
+    <div id="detailModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Tutup">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
