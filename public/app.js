@@ -1,24 +1,125 @@
 const WHATSAPP_NUMBER = '62895406015956';
-const SUPABASE_IMAGE_BASE = 'https://jysaurfhpzofikauqatk.supabase.co/storage/v1/object/public/katalog-gorengan/product-images/';
+
+function localImage(path) {
+    return `/${path.split('/').map(encodeURIComponent).join('/')}`;
+}
 
 const catalogProducts = [
-    { id: 1, name: 'Otok Otok isi kacang ijo', category: 'goreng', price: 2500, filling: 'Kacang ijo', texture: 'Gurih renyah', badge: 'Favorit', accent: '#3fc06f' },
-    { id: 2, name: 'Otok Otok isi coklat', category: 'goreng', price: 2500, filling: 'Coklat', texture: 'Gurih manis', badge: 'Manis', accent: '#8b5a3c' },
-    { id: 3, name: 'Otok Otok isi Stroberi', category: 'goreng', price: 2500, filling: 'Stroberi', texture: 'Gurih fruity', badge: 'Fresh', accent: '#ef5b78' },
-    { id: 4, name: 'Otok Otok isi Nanas', category: 'goreng', price: 2500, filling: 'Nanas', texture: 'Gurih segar', badge: 'Segar', accent: '#f0b429' },
-    { id: 5, name: 'Donat misis', category: 'goreng', price: 3000, filling: 'Misis coklat', texture: 'Empuk', badge: 'Best Seller', accent: '#b5651d' },
-    { id: 6, name: 'Donat misis + keju', category: 'goreng', price: 3500, filling: 'Misis dan keju', texture: 'Empuk creamy', badge: 'Premium', accent: '#f7c948' },
-    { id: 7, name: 'Donat kacang', category: 'goreng', price: 3000, filling: 'Tabur kacang', texture: 'Empuk gurih', badge: 'Crunchy', accent: '#c28a45' },
-    { id: 8, name: 'Donat Gula', category: 'goreng', price: 2500, filling: 'Gula halus', texture: 'Empuk klasik', badge: 'Klasik', accent: '#f5f5f5' },
-    { id: 9, name: 'Bakpao isi coklat', category: 'kukus', price: 3500, filling: 'Coklat lumer', texture: 'Lembut kukus', badge: 'Lembut', accent: '#7b4a2d' },
-    { id: 10, name: 'Bakpao isi kacang', category: 'kukus', price: 3500, filling: 'Kacang', texture: 'Lembut gurih', badge: 'Hangat', accent: '#d99a54' },
+    {
+        id: 1,
+        name: 'Bakpao',
+        category: 'kukus',
+        price: 3500,
+        filling: 'Isi coklat atau kacang',
+        texture: 'Lembut kukus',
+        badge: 'Kukus Lembut',
+        accent: '#d99a54',
+        image: localImage('image/Bakpao/Bakpao Isi Coklat.jpg'),
+        optionGroups: [
+            {
+                id: 'isian',
+                title: 'Pilihan Isian',
+                choices: [
+                    { id: 'coklat', label: 'Isi Coklat', price: 3500, image: localImage('image/Bakpao/Bakpao Isi Coklat.jpg') },
+                    { id: 'kacang', label: 'Isi Kacang', price: 3500, image: localImage('image/Bakpao/Bakpao isi Kacang.png') },
+                ],
+            },
+        ],
+    },
+    {
+        id: 2,
+        name: 'Otok-otok',
+        category: 'goreng',
+        price: 2500,
+        filling: 'Kacang hijau, coklat, strawberry, atau nanas',
+        texture: 'Goreng renyah',
+        badge: 'Banyak Varian',
+        accent: '#f0b429',
+        image: localImage('image/Otok-Otok/full menu gula halus.png'),
+        optionGroups: [
+            {
+                id: 'isian',
+                title: 'Pilihan Isian',
+                choices: [
+                    {
+                        id: 'kacang-hijau',
+                        label: 'Isi Kacang Hijau',
+                        price: 2500,
+                        image: localImage('image/Otok-Otok/Otok-otok isi kacang hijau.jpg'),
+                        images: {
+                            gula: localImage('image/Otok-Otok/full menu gula halus.png'),
+                            tanpa: localImage('image/Otok-Otok/Otok-otok isi kacang hijau.jpg'),
+                        },
+                    },
+                    {
+                        id: 'coklat',
+                        label: 'Isi Coklat',
+                        price: 2500,
+                        image: localImage('image/Otok-Otok/Otok-otok isi Coklat.png'),
+                        images: {
+                            gula: localImage('image/Otok-Otok/Otok-otok isi Coklat.png'),
+                            tanpa: localImage('image/Otok-Otok/Otok-otok isi coklat tanpa gula halus.jpg'),
+                        },
+                    },
+                    {
+                        id: 'strawberry',
+                        label: 'Isi Strawberry',
+                        price: 2500,
+                        image: localImage('image/Otok-Otok/Strawberry .png'),
+                        images: {
+                            gula: localImage('image/Otok-Otok/Strawberry .png'),
+                            tanpa: localImage('image/Otok-Otok/Otok-otok isi strawberry tanpa gula.jpg'),
+                        },
+                    },
+                    {
+                        id: 'nanas',
+                        label: 'Isi Nanas',
+                        price: 2500,
+                        image: localImage('image/Otok-Otok/Nanas Gula (1).png'),
+                        images: {
+                            gula: localImage('image/Otok-Otok/Nanas Gula (1).png'),
+                            tanpa: localImage('image/Otok-Otok/Otok-otok Nanas tanpa gula halus.jpg'),
+                        },
+                    },
+                ],
+            },
+            {
+                id: 'taburan',
+                title: 'Pilihan Taburan',
+                choices: [
+                    { id: 'gula', label: 'Gula Halus' },
+                    { id: 'tanpa', label: 'Tanpa Gula Halus' },
+                ],
+            },
+        ],
+    },
+    {
+        id: 3,
+        name: 'Donat',
+        category: 'goreng',
+        price: 2500,
+        pricePrefix: 'Mulai ',
+        filling: 'Meses, keju, kacang, atau gula halus',
+        texture: 'Empuk manis',
+        badge: 'Favorit Anak',
+        accent: '#b5651d',
+        image: localImage('image/Donat/Donat Meses.png'),
+        optionGroups: [
+            {
+                id: 'topping',
+                title: 'Pilihan Topping',
+                choices: [
+                    { id: 'meses', label: 'Donat Meses', price: 3000, image: localImage('image/Donat/Donat Meses.png') },
+                    { id: 'meses-keju', label: 'Donat Meses & Keju', price: 3500, image: localImage('image/Donat/Donat Keju.png') },
+                    { id: 'meses-kacang', label: 'Donat Meses & Kacang', price: 3000, image: localImage('image/Donat/Donat meses + kacang.png') },
+                    { id: 'gula-halus', label: 'Donat Gula Halus', price: 2500, image: localImage('image/Donat/Donat Gula Halus.png') },
+                ],
+            },
+        ],
+    },
 ];
 
 let allProducts = [...catalogProducts];
-
-function supabaseImage(fileName) {
-    return `${SUPABASE_IMAGE_BASE}${fileName}`;
-}
 
 document.addEventListener('DOMContentLoaded', () => {
     initCursorGlow();
@@ -45,9 +146,9 @@ function categoryLabel(category) {
     return category === 'kukus' ? 'Kukus' : 'Goreng';
 }
 
-async function loadProducts(category = 'all', search = '') {
+function loadProducts(category = 'all', search = '') {
     const grid = document.getElementById('productGrid');
-    grid.innerHTML = Array(4).fill(0).map(() => `
+    grid.innerHTML = Array(3).fill(0).map(() => `
         <div class="skeleton-card">
             <div class="skeleton-img"></div>
             <div class="skeleton-text"></div>
@@ -56,66 +157,22 @@ async function loadProducts(category = 'all', search = '') {
         </div>
     `).join('');
 
-    try {
-        const params = new URLSearchParams();
-        if (category !== 'all') params.append('category', category);
-        if (search) params.append('search', search);
-
-        const response = await fetch(`/api/products?${params}`);
-        if (!response.ok) throw new Error('API tidak merespons');
-        const databaseProducts = await response.json();
-        const normalizedProducts = databaseProducts
-            .map(normalizeProduct)
-            .filter((product) => ['goreng', 'kukus'].includes(product.category));
-        const products = normalizedProducts.length > 0
-            ? normalizedProducts
-            : filterLocalProducts(category, search);
-
-        allProducts = products;
-        setTimeout(() => displayProducts(products), 250);
-    } catch (error) {
-        console.warn('Memakai data lokal:', error);
-        const products = filterLocalProducts(category, search);
-        allProducts = products;
-        setTimeout(() => displayProducts(products), 250);
-    }
+    const products = filterLocalProducts(category, search);
+    allProducts = products;
+    setTimeout(() => displayProducts(products), 180);
 }
 
 function filterLocalProducts(category = 'all', search = '') {
     const keyword = search.trim().toLowerCase();
     return catalogProducts.filter((product) => {
+        const optionText = (product.optionGroups || [])
+            .flatMap((group) => group.choices.map((choice) => choice.label))
+            .join(' ');
+        const haystack = `${product.name} ${product.filling} ${product.category} ${optionText}`.toLowerCase();
         const matchesCategory = category === 'all' || product.category === category;
-        const matchesSearch = !keyword || `${product.name} ${product.filling} ${product.category}`.toLowerCase().includes(keyword);
+        const matchesSearch = !keyword || haystack.includes(keyword);
         return matchesCategory && matchesSearch;
     });
-}
-
-function normalizeProduct(product) {
-    const specs = parseSpecs(product.specs);
-
-    return {
-        id: product.id,
-        name: product.name,
-        category: product.category || 'goreng',
-        price: Number(product.price || 0),
-        stock: Number(product.stock || 0),
-        image: product.image || '',
-        filling: specs.filling || specs.isian || product.description || '-',
-        texture: specs.texture || specs.tekstur || 'Fresh harian',
-        badge: product.badge || specs.badge || 'Ready',
-        accent: specs.accent || '#f5a623',
-    };
-}
-
-function parseSpecs(specs) {
-    if (!specs) return {};
-    if (typeof specs !== 'string') return specs;
-
-    try {
-        return JSON.parse(specs);
-    } catch {
-        return {};
-    }
 }
 
 function productVisual(product) {
@@ -164,6 +221,25 @@ function productMedia(product) {
     `;
 }
 
+function formatProductPrice(product) {
+    return `${product.pricePrefix || ''}${rupiah(product.price)}`;
+}
+
+function getPrimaryOptionGroup(product) {
+    return (product.optionGroups || []).find((group) => group.choices.some((choice) => choice.price || choice.image || choice.images));
+}
+
+function getVariantCount(product) {
+    return getPrimaryOptionGroup(product)?.choices.length || 0;
+}
+
+function variantPreview(product) {
+    return (product.optionGroups || [])
+        .flatMap((group) => group.choices.map((choice) => choice.label.replace(/^Donat\s+/i, '').replace(/^Isi\s+/i, '')))
+        .slice(0, 4)
+        .join(', ');
+}
+
 function displayProducts(products) {
     const grid = document.getElementById('productGrid');
 
@@ -182,10 +258,10 @@ function displayProducts(products) {
             <div class="product-info">
                 <span class="product-cat">${categoryLabel(product.category)}</span>
                 <h3>${product.name}</h3>
-                <span class="product-price">${rupiah(product.price)} <small>/ pcs</small></span>
+                <span class="product-price">${formatProductPrice(product)} <small>/ pcs</small></span>
                 <div class="card-specs">
-                    <span class="spec-pill"><i class="fas fa-bowl-food"></i> ${product.filling}</span>
-                    <span class="spec-pill"><i class="fas fa-star"></i> ${product.texture}</span>
+                    <span class="spec-pill"><i class="fas fa-list-check"></i> ${getVariantCount(product)} varian</span>
+                    <span class="spec-pill"><i class="fas fa-bowl-food"></i> ${variantPreview(product)}</span>
                 </div>
             </div>
         </article>
@@ -197,39 +273,146 @@ function displayProducts(products) {
     }, 80);
 }
 
+function getDefaultSelections(product) {
+    return (product.optionGroups || []).reduce((selections, group) => {
+        selections[group.id] = group.choices[0]?.id || '';
+        return selections;
+    }, {});
+}
+
+function getChoice(product, groupId, choiceId) {
+    const group = (product.optionGroups || []).find((item) => item.id === groupId);
+    return group?.choices.find((choice) => choice.id === choiceId) || group?.choices[0] || null;
+}
+
+function getPrimaryVariant(product, selections) {
+    const primaryGroup = getPrimaryOptionGroup(product);
+    if (!primaryGroup) return null;
+    return getChoice(product, primaryGroup.id, selections[primaryGroup.id]);
+}
+
+function getSelectedPrice(product, selections) {
+    return getPrimaryVariant(product, selections)?.price || product.price;
+}
+
+function getSelectedImage(product, selections) {
+    const variant = getPrimaryVariant(product, selections);
+    if (variant?.images && selections.taburan && variant.images[selections.taburan]) {
+        return variant.images[selections.taburan];
+    }
+
+    return variant?.image || product.image;
+}
+
+function getSelectionSummary(product, selections) {
+    return (product.optionGroups || []).map((group) => {
+        const choice = getChoice(product, group.id, selections[group.id]);
+        return `${group.title.replace('Pilihan ', '')}: ${choice?.label || '-'}`;
+    }).join(', ');
+}
+
+function makeWhatsAppUrl(product, selections) {
+    const summary = getSelectionSummary(product, selections);
+    const price = rupiah(getSelectedPrice(product, selections));
+    const message = encodeURIComponent(`Halo Bakul Gorengan, saya mau pesan ${product.name} (${summary}) harga ${price}/pcs. Boleh cek stok dan total harganya?`);
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+}
+
+function renderOptionGroups(product, selections) {
+    if (!product.optionGroups?.length) return '';
+
+    return `
+        <div class="option-panel">
+            <h4><i class="fas fa-sliders"></i> Pilihan Opsi</h4>
+            ${product.optionGroups.map((group) => `
+                <div class="option-group">
+                    <p>${group.title}</p>
+                    <div class="option-choices">
+                        ${group.choices.map((choice) => `
+                            <button
+                                type="button"
+                                class="option-chip ${selections[group.id] === choice.id ? 'active' : ''}"
+                                data-group-id="${group.id}"
+                                data-choice-id="${choice.id}"
+                            >
+                                <span>${choice.label}</span>
+                                ${choice.price ? `<small>${rupiah(choice.price)}</small>` : ''}
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('')}
+            <div class="option-summary" id="selectedSummary">${getSelectionSummary(product, selections)}</div>
+        </div>
+    `;
+}
+
+function updateOrderPanel(product, selections) {
+    const selectedProduct = { ...product, image: getSelectedImage(product, selections) };
+    const selectedMedia = document.getElementById('selectedMedia');
+    const selectedPrice = document.getElementById('selectedPrice');
+    const selectedPriceText = document.getElementById('selectedPriceText');
+    const selectedSummary = document.getElementById('selectedSummary');
+    const orderButton = document.getElementById('orderButton');
+
+    if (selectedMedia) selectedMedia.innerHTML = productMedia(selectedProduct);
+    if (selectedPrice) selectedPrice.innerHTML = `${rupiah(getSelectedPrice(product, selections))} <small>/ pcs</small>`;
+    if (selectedPriceText) selectedPriceText.textContent = rupiah(getSelectedPrice(product, selections));
+    if (selectedSummary) selectedSummary.textContent = getSelectionSummary(product, selections);
+    if (orderButton) orderButton.href = makeWhatsAppUrl(product, selections);
+}
+
+function bindOptionButtons(product, selections) {
+    document.querySelectorAll('.option-chip').forEach((button) => {
+        button.addEventListener('click', () => {
+            const groupId = button.dataset.groupId;
+            selections[groupId] = button.dataset.choiceId;
+
+            document.querySelectorAll(`.option-chip[data-group-id="${groupId}"]`).forEach((item) => {
+                item.classList.toggle('active', item === button);
+            });
+
+            updateOrderPanel(product, selections);
+        });
+    });
+}
+
 function openDetail(id) {
     const product = allProducts.find((item) => String(item.id) === String(id));
     if (!product) return;
 
     const modal = document.getElementById('detailModal');
     const body = document.getElementById('modalBody');
-    const message = encodeURIComponent(`Halo Bakul Gorengan, saya mau pesan ${product.name}. Boleh cek stok dan total harganya?`);
+    const selections = getDefaultSelections(product);
+    const selectedProduct = { ...product, image: getSelectedImage(product, selections) };
 
     body.innerHTML = `
         <div class="detail-grid">
-            <div class="detail-img">
-                ${productMedia(product)}
+            <div class="detail-img" id="selectedMedia">
+                ${productMedia(selectedProduct)}
             </div>
             <div class="detail-info">
                 <div class="detail-header">
                     <span class="hero-badge"><i class="fas fa-utensils"></i> ${categoryLabel(product.category)} fresh</span>
                     <h2>${product.name}</h2>
-                    <span class="detail-price">${rupiah(product.price)} <small>/ pcs</small></span>
+                    <span class="detail-price" id="selectedPrice">${rupiah(getSelectedPrice(product, selections))} <small>/ pcs</small></span>
                 </div>
+
+                ${renderOptionGroups(product, selections)}
 
                 <div class="detail-sections">
                     <div class="specs-group">
                         <h4><i class="fas fa-circle-info"></i> Detail Menu</h4>
                         <div class="detail-list">
                             <div class="list-item"><span>Kategori</span><b>${categoryLabel(product.category)}</b></div>
-                            <div class="list-item"><span>Isian</span><b>${product.filling}</b></div>
+                            <div class="list-item"><span>Varian</span><b>${getVariantCount(product)} varian</b></div>
                             <div class="list-item"><span>Tekstur</span><b>${product.texture}</b></div>
                         </div>
                     </div>
                     <div class="specs-group">
                         <h4><i class="fas fa-bag-shopping"></i> Pemesanan</h4>
                         <div class="detail-list">
-                            <div class="list-item"><span>Harga</span><b>${rupiah(product.price)}</b></div>
+                            <div class="list-item"><span>Harga</span><b id="selectedPriceText">${rupiah(getSelectedPrice(product, selections))}</b></div>
                             <div class="list-item"><span>Satuan</span><b>Per pcs</b></div>
                             <div class="list-item"><span>Kontak</span><b>0895-4060-15956</b></div>
                         </div>
@@ -238,16 +421,17 @@ function openDetail(id) {
 
                 <div class="minus-section">
                     <p class="note-title">Catatan</p>
-                    <div class="minus-box">Harga dapat disesuaikan untuk pesanan banyak. Hubungi admin untuk cek stok hari ini.</div>
+                    <div class="minus-box">Pilih opsi menu sebelum pesan. Harga dapat disesuaikan untuk pesanan banyak, hubungi admin untuk cek stok hari ini.</div>
                 </div>
 
-                <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${message}" target="_blank" rel="noopener" class="wa-btn">
+                <a href="${makeWhatsAppUrl(product, selections)}" target="_blank" rel="noopener" class="wa-btn" id="orderButton">
                     <i class="fab fa-whatsapp"></i> Pesan Menu Ini
                 </a>
             </div>
         </div>
     `;
 
+    bindOptionButtons(product, selections);
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }

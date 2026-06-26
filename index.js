@@ -1,10 +1,10 @@
-require("dotenv").config();
-
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const multer = require("multer");
 const { createClient } = require("@supabase/supabase-js");
+
+require("dotenv").config({ path: path.join(__dirname, ".env") });
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -21,6 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/image", express.static(path.join(__dirname, "image")));
 app.use("/admin", express.static(path.join(__dirname, "admin")));
 
 const cleanData = (data) => {

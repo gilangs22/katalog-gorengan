@@ -158,6 +158,45 @@ a { color: inherit; }
     place-items: center;
     animation: hFloat 6s ease-in-out infinite;
 }
+.photo-showcase {
+    position: relative;
+    display: block;
+    overflow: visible;
+    border-radius: 32px;
+    background:
+        radial-gradient(circle at 34% 26%, rgba(255, 255, 255, 0.22), transparent 28%),
+        linear-gradient(145deg, #332115, #110d09);
+    padding: 0;
+}
+.hero-food {
+    position: absolute;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 248, 237, 0.18);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.36);
+    background: var(--bg-alt);
+}
+.hero-food-main {
+    width: 66%;
+    height: 78%;
+    left: 17%;
+    top: 8%;
+    z-index: 1;
+}
+.hero-food-donut {
+    width: 34%;
+    height: 43%;
+    right: 2%;
+    bottom: 3%;
+    z-index: 2;
+}
+.hero-food-bakpao {
+    width: 32%;
+    height: 42%;
+    left: 3%;
+    bottom: 8%;
+    z-index: 3;
+}
 .plate {
     width: 76%;
     aspect-ratio: 1;
@@ -465,6 +504,12 @@ body.dark-mode .orb { opacity: 0.45; }
 .detail-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 30px; align-items: center; }
 .detail-img { min-height: 330px; background: var(--bg-alt); border-radius: 22px; padding: 20px; display: grid; place-items: center; }
 .detail-img .product-art { transform: scale(1.25); }
+.detail-img .product-thumb {
+    width: 100%;
+    height: min(52vh, 360px);
+    object-fit: cover;
+    border-radius: 18px;
+}
 .detail-info h2 { font-size: clamp(1.65rem, 4vw, 2.4rem); font-weight: 900; margin-bottom: 8px; letter-spacing: 0; }
 .detail-price { font-size: 1.35rem; font-weight: 900; color: var(--primary); margin-bottom: 20px; display: block; }
 .detail-sections { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 20px 0; }
@@ -474,6 +519,73 @@ body.dark-mode .orb { opacity: 0.45; }
 .note-title { font-weight: 900; margin-bottom: 9px; color: var(--primary); }
 .minus-box { background: rgba(245, 166, 35, 0.08); border: 1px solid rgba(245, 166, 35, 0.2); padding: 13px 15px; border-radius: 14px; color: var(--text-sec); font-size: 0.88rem; font-weight: 700; }
 .wa-btn { display: block; text-align: center; background: #25d366; color: #052d14; text-decoration: none; padding: 0.9rem; border-radius: 14px; font-weight: 900; margin-top: 16px; font-size: 0.92rem; }
+.option-panel {
+    margin: 18px 0;
+    padding: 16px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+.option-panel h4 {
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+.option-group + .option-group { margin-top: 14px; }
+.option-group p {
+    color: var(--text-sec);
+    font-size: 0.8rem;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+.option-choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.option-chip {
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    color: var(--text);
+    border-radius: 12px;
+    padding: 9px 11px;
+    min-width: min(155px, 100%);
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    text-align: left;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 900;
+    transition: 0.2s;
+}
+.option-chip:hover {
+    border-color: color-mix(in srgb, var(--primary) 55%, var(--border));
+}
+.option-chip.active {
+    background: var(--primary);
+    color: #211407;
+    border-color: var(--primary);
+    box-shadow: 0 10px 22px rgba(245, 166, 35, 0.24);
+}
+.option-chip small {
+    color: inherit;
+    opacity: 0.72;
+    font-size: 0.68rem;
+}
+.option-summary {
+    margin-top: 13px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    color: var(--text-sec);
+    font-size: 0.8rem;
+    font-weight: 800;
+}
 
 .skeleton-card { position: relative; overflow: hidden; min-height: 340px; border-radius: 24px; border: 1px solid var(--border); background: var(--card-bg); padding: 18px; }
 .skeleton-img, .skeleton-text, .skeleton-price { background: var(--bg-alt); border-radius: 16px; }
@@ -508,6 +620,7 @@ body.dark-mode .orb { opacity: 0.45; }
     .hero-actions, .hero-stats { justify-content: center; }
     .hero-visual { order: 1; min-height: 390px; }
     .food-showcase { width: min(380px, 90vw); }
+    .photo-showcase { border-radius: 26px; }
     .floating-card { font-size: 0.78rem; }
     .card-1 { left: 0; top: 12%; }
     .card-2 { right: 0; bottom: 13%; }
@@ -528,4 +641,6 @@ body.dark-mode .orb { opacity: 0.45; }
     .filter-btn { flex: 1; padding-left: 0.7rem; padding-right: 0.7rem; }
     .modal-content { padding: 26px 18px; border-radius: 24px; }
     .detail-img { min-height: 250px; }
+    .detail-img .product-thumb { height: 250px; }
+    .option-chip { flex: 1 1 100%; }
 }
