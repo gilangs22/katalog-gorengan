@@ -109,6 +109,9 @@ a { color: inherit; }
     font-weight: 800;
     margin-bottom: 1.2rem;
 }
+.text-white {
+    color: #ffffff;
+}
 .text-gradient {
     background: linear-gradient(90deg, #f5a623, #ffcf66, #e7602a);
     background-size: 220% auto;

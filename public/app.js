@@ -9,7 +9,7 @@ const catalogProducts = [
         id: 1,
         name: 'Bakpao',
         category: 'kukus',
-        price: 3500,
+        price: 2500,
         filling: 'Isi coklat atau kacang',
         texture: 'Lembut kukus',
         badge: 'Kukus Lembut',
@@ -20,8 +20,8 @@ const catalogProducts = [
                 id: 'isian',
                 title: 'Pilihan Isian',
                 choices: [
-                    { id: 'coklat', label: 'Isi Coklat', price: 3500, image: localImage('image/Bakpao/Bakpao Isi Coklat.jpg') },
-                    { id: 'kacang', label: 'Isi Kacang', price: 3500, image: localImage('image/Bakpao/Bakpao isi Kacang.png') },
+                    { id: 'coklat', label: 'Isi Coklat', price: 2500, image: localImage('image/Bakpao/Bakpao Isi Coklat.jpg') },
+                    { id: 'kacang', label: 'Isi Kacang', price: 2500, image: localImage('image/Bakpao/Bakpao isi Kacang.png') },
                 ],
             },
         ],
@@ -47,8 +47,8 @@ const catalogProducts = [
                         price: 2500,
                         image: localImage('image/Otok-Otok/Otok-otok isi kacang hijau.jpg'),
                         images: {
-                            gula: localImage('image/Otok-Otok/full menu gula halus.png'),
-                            tanpa: localImage('image/Otok-Otok/Otok-otok isi kacang hijau.jpg'),
+                            gula: localImage('image/Otok-Otok/Otok-otok isi Coklat.png'),
+                            tanpa: localImage('image/Otok-Otok/Otok-otok isi coklat tanpa gula halus.jpg'),
                         },
                     },
                     {
@@ -98,7 +98,6 @@ const catalogProducts = [
         name: 'Donat',
         category: 'goreng',
         price: 2500,
-        pricePrefix: 'Mulai ',
         filling: 'Meses, keju, kacang, atau gula halus',
         texture: 'Empuk manis',
         badge: 'Favorit Anak',
@@ -109,9 +108,9 @@ const catalogProducts = [
                 id: 'topping',
                 title: 'Pilihan Topping',
                 choices: [
-                    { id: 'meses', label: 'Donat Meses', price: 3000, image: localImage('image/Donat/Donat Meses.png') },
-                    { id: 'meses-keju', label: 'Donat Meses & Keju', price: 3500, image: localImage('image/Donat/Donat Keju.png') },
-                    { id: 'meses-kacang', label: 'Donat Meses & Kacang', price: 3000, image: localImage('image/Donat/Donat meses + kacang.png') },
+                    { id: 'meses', label: 'Donat Meses', price: 2500, image: localImage('image/Donat/Donat Meses.png') },
+                    { id: 'meses-keju', label: 'Donat Meses & Keju', price: 2500, image: localImage('image/Donat/Donat Keju.png') },
+                    { id: 'meses-kacang', label: 'Donat Meses & Kacang', price: 2500, image: localImage('image/Donat/Donat meses + kacang.png') },
                     { id: 'gula-halus', label: 'Donat Gula Halus', price: 2500, image: localImage('image/Donat/Donat Gula Halus.png') },
                 ],
             },
@@ -314,7 +313,7 @@ function getSelectionSummary(product, selections) {
 function makeWhatsAppUrl(product, selections) {
     const summary = getSelectionSummary(product, selections);
     const price = rupiah(getSelectedPrice(product, selections));
-    const message = encodeURIComponent(`Halo Bakul Gorengan, saya mau pesan ${product.name} (${summary}) harga ${price}/pcs. Boleh cek stok dan total harganya?`);
+    const message = encodeURIComponent(`Halo Dapur Roti Ibu, saya mau pesan ${product.name} (${summary}) harga ${price}/pcs. Boleh cek stok dan total harganya?`);
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
 }
 
