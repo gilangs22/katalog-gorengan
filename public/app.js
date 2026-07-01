@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = '62895406015956';
+const WHATSAPP_NUMBER = '6283163387668';
 
 function localImage(path) {
     return `/${path.split('/').map(encodeURIComponent).join('/')}`;
@@ -413,7 +413,7 @@ function openDetail(id) {
                         <div class="detail-list">
                             <div class="list-item"><span>Harga</span><b id="selectedPriceText">${rupiah(getSelectedPrice(product, selections))}</b></div>
                             <div class="list-item"><span>Satuan</span><b>Per pcs</b></div>
-                            <div class="list-item"><span>Kontak</span><b>0895-4060-15956</b></div>
+                            <div class="list-item"><span>Kontak</span><b>0831-6338-7668</b></div>
                         </div>
                     </div>
                 </div>
