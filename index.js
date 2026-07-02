@@ -9,7 +9,7 @@ require("dotenv").config({ path: path.join(__dirname, ".env") });
 const app = express();
 const PORT = process.env.PORT || 3000;
 const API_ADMIN_PASSWORD = process.env.API_ADMIN_PASSWORD || "admin123";
-const DATA_DIR = path.join(__dirname, "uploads");
+const DATA_DIR = process.env.PRODUCTS_DATA_DIR || (process.env.VERCEL ? "/tmp/katalog-gorengan" : path.join(__dirname, "uploads"));
 const DATA_FILE = path.join(DATA_DIR, "products.json");
 const IMAGE_DIR = path.join(DATA_DIR, "images");
 
@@ -111,17 +111,28 @@ const ensureStorage = () => {
   }
 };
 
+const getDefaultStore = () => ({
+  nextId: Math.max(...defaultProducts.map((item) => Number(item.id || 0))) + 1,
+  products: defaultProducts.map((item) => normalizeProduct(item, item.id)),
+});
+
 const readProductStore = () => {
   ensureStorage();
   try {
     const raw = fs.readFileSync(DATA_FILE, "utf8");
     const parsed = JSON.parse(raw);
+    const products = Array.isArray(parsed.products) ? parsed.products : [];
+
+    if (!products.length) {
+      return getDefaultStore();
+    }
+
     return {
-      nextId: Number(parsed.nextId || 1),
-      products: Array.isArray(parsed.products) ? parsed.products : [],
+      nextId: Number(parsed.nextId || products.length + 1),
+      products: products.map((item) => normalizeProduct(item, item.id)),
     };
   } catch (error) {
-    return { nextId: 4, products: [] };
+    return getDefaultStore();
   }
 };
 

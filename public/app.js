@@ -160,7 +160,8 @@ async function loadProducts(category = 'all', search = '') {
         const response = await fetch('/api/products');
         if (response.ok) {
             const remoteProducts = await response.json();
-            const products = filterProducts(remoteProducts, category, search);
+            const sourceProducts = Array.isArray(remoteProducts) && remoteProducts.length > 0 ? remoteProducts : catalogProducts;
+            const products = filterProducts(sourceProducts, category, search);
             allProducts = products;
             setTimeout(() => displayProducts(products), 180);
             return;
