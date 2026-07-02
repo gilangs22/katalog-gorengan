@@ -145,7 +145,7 @@ function categoryLabel(category) {
     return category === 'kukus' ? 'Kukus' : 'Goreng';
 }
 
-function loadProducts(category = 'all', search = '') {
+async function loadProducts(category = 'all', search = '') {
     const grid = document.getElementById('productGrid');
     grid.innerHTML = Array(3).fill(0).map(() => `
         <div class="skeleton-card">
@@ -156,18 +156,31 @@ function loadProducts(category = 'all', search = '') {
         </div>
     `).join('');
 
-    const products = filterLocalProducts(category, search);
+    try {
+        const response = await fetch('/api/products');
+        if (response.ok) {
+            const remoteProducts = await response.json();
+            const products = filterProducts(remoteProducts, category, search);
+            allProducts = products;
+            setTimeout(() => displayProducts(products), 180);
+            return;
+        }
+    } catch (error) {
+        console.warn('Gagal memuat produk dari API, memakai data lokal:', error);
+    }
+
+    const products = filterProducts(catalogProducts, category, search);
     allProducts = products;
     setTimeout(() => displayProducts(products), 180);
 }
 
-function filterLocalProducts(category = 'all', search = '') {
+function filterProducts(products, category = 'all', search = '') {
     const keyword = search.trim().toLowerCase();
-    return catalogProducts.filter((product) => {
+    return products.filter((product) => {
         const optionText = (product.optionGroups || [])
             .flatMap((group) => group.choices.map((choice) => choice.label))
             .join(' ');
-        const haystack = `${product.name} ${product.filling} ${product.category} ${optionText}`.toLowerCase();
+        const haystack = `${product.name} ${product.filling || ''} ${product.category || ''} ${optionText}`.toLowerCase();
         const matchesCategory = category === 'all' || product.category === category;
         const matchesSearch = !keyword || haystack.includes(keyword);
         return matchesCategory && matchesSearch;

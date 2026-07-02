@@ -1,0 +1,109 @@
+{
+  "nextId": 5,
+  "products": [
+    {
+      "id": 4,
+      "name": "Coba Produk",
+      "category": "goreng",
+      "price": 3000,
+      "stock": 5,
+      "image": "/image/Donat/Donat Meses.png",
+      "description": "Coba",
+      "badge": "Test",
+      "filling": "Coklat",
+      "texture": "Renyah",
+      "packaging": "Plastik",
+      "specs": {
+        "priority": null,
+        "filling": "Coklat",
+        "texture": "Renyah",
+        "production": "",
+        "packaging": "Plastik",
+        "size": "",
+        "minimumOrder": "",
+        "readyEstimate": "",
+        "completeness": ""
+      },
+      "created_at": "2026-07-02T00:10:29.574Z",
+      "updated_at": "2026-07-02T00:10:29.574Z"
+    },
+    {
+      "id": 1,
+      "name": "Bakpao",
+      "category": "kukus",
+      "price": 2500,
+      "stock": 20,
+      "image": "/image/Bakpao/Bakpao Isi Coklat.jpg",
+      "description": "Bakpao lembut khas ibu",
+      "badge": "Kukus Lembut",
+      "filling": "Isi coklat atau kacang",
+      "texture": "Lembut kukus",
+      "packaging": "Mika",
+      "specs": {
+        "priority": 1,
+        "filling": "Isi coklat atau kacang",
+        "texture": "Lembut kukus",
+        "production": "Dipanggang",
+        "packaging": "Mika",
+        "size": "Besar",
+        "minimumOrder": "1 box",
+        "readyEstimate": "Hari ini",
+        "completeness": "Siap"
+      },
+      "created_at": "2026-07-02T00:08:47.388Z",
+      "updated_at": "2026-07-02T00:08:47.389Z"
+    },
+    {
+      "id": 2,
+      "name": "Otok-otokkk",
+      "category": "goreng",
+      "price": 2500,
+      "stock": 15,
+      "image": "/image/Otok-Otok/full menu gula halus.png",
+      "description": "Otok-otok renyah untuk camilan",
+      "badge": "Banyak Varian",
+      "filling": "Kacang hijau, coklat, strawberry, atau nanas",
+      "texture": "Goreng renyah",
+      "packaging": "Plastik",
+      "specs": {
+        "priority": 2,
+        "filling": "Kacang hijau, coklat, strawberry, atau nanas",
+        "texture": "Goreng renyah",
+        "production": "Goreng",
+        "packaging": "Plastik",
+        "size": "Sedang",
+        "minimumOrder": "1 box",
+        "readyEstimate": "Hari ini",
+        "completeness": "Siap"
+      },
+      "created_at": "2026-07-02T00:08:47.389Z",
+      "updated_at": "2026-07-02T00:12:00.323Z"
+    },
+    {
+      "id": 3,
+      "name": "Donat",
+      "category": "goreng",
+      "price": 2500,
+      "stock": 18,
+      "image": "/image/Donat/Donat Meses.png",
+      "description": "Donat empuk favorit anak",
+      "badge": "Favorit Anak",
+      "filling": "Meses, keju, kacang, atau gula halus",
+      "texture": "Empuk manis",
+      "packaging": "Plastik",
+      "specs": {
+        "priority": 3,
+        "filling": "Meses, keju, kacang, atau gula halus",
+        "texture": "Empuk manis",
+        "production": "Goreng",
+        "packaging": "Plastik",
+        "size": "Sedang",
+        "minimumOrder": "1 box",
+        "readyEstimate": "Hari ini",
+        "completeness": "Siap"
+      },
+      "created_at": "2026-07-02T00:08:47.389Z",
+      "updated_at": "2026-07-02T00:08:47.389Z"
+    }
+  ]
+}
